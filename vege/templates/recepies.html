@@ -8,7 +8,7 @@
 </head>
 <body>
     <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+        {%csrf_token%}
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">VegeTable name</label>
           <input name="name"  type="name" class="form-control" id="vegename">
@@ -23,5 +23,38 @@
           </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+
+
+
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">VegeTable_Name</th>
+            <th scope="col">Vegetabel Description</th>
+            <th scope="col">Vegetabel Picture</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for vegan in vege_data  %}
+          <tr>
+            <th >{{forloop.counter}}</th>
+            <td>{{vegan.name}}</td>
+            <td>{{vegan.desc}}</td>
+            <td>
+              <img src="/media/{{vegan.pic}}" style="height:200px "</td>
+            <td>
+              <a href="/delete-receipes/{{vegan.id}}" class="btn btn-danger m-2">Delete</a>
+              <a href="/update-receipes/{{vegan.id}}" class="btn btn-success">Update</a>
+
+            </td>
+          
+          
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
 </body>
 </html>

@@ -9,42 +9,23 @@
 <body>
     <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
         {%csrf_token%}
+        <h2>Update Info</h2>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">VegeTable name</label>
-          <input name="name"  type="name" class="form-control" id="vegename">
+          <input name="name"  value="{{vege_data.name}}" type="name" class="form-control" id="vegename">
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Vegetabel Description</label>
-          <input name="desc"="text" class="form-control" id="vegedescription">
+          <label for="exampleInputPassword1" class="form-label">{{vege_data.desc}}</label>
+          <input name="desc"="text" value="" class="form-control" id="vegedescription">
         </div>
         <div class="input-group mb-3">
-            <input name="pic" type="file" class="form-control" id="inputGroupFile02">
+            <input name="pic" type="file" value="{{vege_data.pic}}" class="form-control" id="inputGroupFile02">
             <label class="input-group-text" for="inputGroupFile02">Upload</label>
           </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
 
-
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">VegeTable_Name</th>
-            <th scope="col">Vegetabel Description</th>
-            <th scope="col">Vegetabel Picture</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-        </tbody>
-      </table>
 
 </body>
 </html>
